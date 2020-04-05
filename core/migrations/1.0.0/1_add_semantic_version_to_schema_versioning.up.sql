@@ -1,0 +1,1 @@
+ALTER TABLE schema_migrations ADD COLUMN `semantic_version` VARCHAR(255) DEFAULT '1.0.0' AFTER `version`;

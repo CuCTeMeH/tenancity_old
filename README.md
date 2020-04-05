@@ -1,29 +1,13 @@
-# README #
+# Tenancity
 
-This README would normally document whatever steps are necessary to get your application up and running.
+Tenancity Golang API
 
-### What is this repository for? ###
-
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
-
-### How do I get set up? ###
-
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
-
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+Requirements:
+   - Go Chi Router: go get -u github.com/go-chi/chi
+   - GORM DB ORM: go get -u github.com/jinzhu/gorm (always in .env define the key name lowercase e.g not Tenancity but Tenancity
+   - Viper Config Management: go get github.com/spf13/viper
+   - Logrus for logs: go get github.com/sirupsen/logrus
+   - Logrus mail hook for mailing errors: go get github.com/zbindenren/logrus_mail
+   - Logrus slack notification hook: go get github.com/johntdyer/slackrus
+   - Logrus MySQL hook - https://github.com/LyricTian/logrus-mysql-hook
+   - Dep for dependencies - https://github.com/golang/dep

@@ -1,0 +1,8 @@
+.idea/**
+.idea/*
+.idea
+env.json
+vendor/
+vendor/*
+vendor/**
+.DS_Store
