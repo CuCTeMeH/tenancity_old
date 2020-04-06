@@ -122,7 +122,6 @@ func AutoMigrateModules(path string) {
 		//sourceUrl := "file:///" + path + version
 		sourceUrl := "file://" + path + "/" + version
 
-		AutoMigrateWorkaround()
 		connection := Server.DB.Credentials["main"]
 		dbSource := fmt.Sprintf("mysql://%s:%s@tcp(%s:%d)/%s?charset=utf8&parseTime=True&loc=Local", connection.Username, connection.Password, connection.Host, connection.Port, connection.Name)
 
@@ -136,19 +135,5 @@ func AutoMigrateModules(path string) {
 		if e != nil {
 			logrus.Warn(e)
 		}
-	}
-}
-
-func AutoMigrateWorkaround() {
-	type Result struct {
-		Version int
-	}
-
-	var result Result
-	db.Raw("SELECT version FROM schema_migrations order by version limit 1", 3).Scan(&result)
-
-	if result.Version > 0 {
-		//Check with sql the last row and reset the version column to 0 on each run.
-		db.Exec("UPDATE schema_migrations SET version=?", 0)
 	}
 }

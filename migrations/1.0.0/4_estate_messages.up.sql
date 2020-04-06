@@ -12,5 +12,5 @@ CREATE TABLE IF NOT EXISTS `estate_messages` (
   KEY `estate_messages_sender_id_foreign` (`sender_id`),
   KEY `estate_messages_recipient_id_foreign` (`recipient_id`),
   KEY `estate_messages_estate_id_foreign` (`estate_id`),
-  KEY `estate_messages_rent_id_foreign` (`rent_id`),
+  KEY `estate_messages_rent_id_foreign` (`rent_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

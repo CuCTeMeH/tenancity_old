@@ -12,5 +12,5 @@ CREATE TABLE `estate_bills` (
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `estate_bills_estate_id_foreign` (`estate_id`),
-  KEY `estate_bills_rent_id_foreign` (`rent_id`),
+  KEY `estate_bills_rent_id_foreign` (`rent_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

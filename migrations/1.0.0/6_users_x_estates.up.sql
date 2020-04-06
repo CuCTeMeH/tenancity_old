@@ -11,5 +11,5 @@ CREATE TABLE IF NOT EXISTS `users_x_estates` (
   PRIMARY KEY (`id`),
   KEY `users_x_estates_user_id_foreign` (`user_id`),
   KEY `users_x_estates_estate_id_foreign` (`estate_id`),
-  KEY `users_x_rents_estate_id_foreign` (`rent_id`),
+  KEY `users_x_rents_estate_id_foreign` (`rent_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

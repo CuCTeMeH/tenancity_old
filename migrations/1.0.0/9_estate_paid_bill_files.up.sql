@@ -18,5 +18,5 @@ CREATE TABLE IF NOT EXISTS `estate_paid_bill_files` (
   PRIMARY KEY (`id`),
   KEY `estate_paid_bill_files_paid_bill_id_foreign` (`paid_bill_id`),
   KEY `estate_paid_bill_files_estate_id_foreign` (`estate_id`),
-  KEY `estate_paid_bill_files_rent_id_foreign` (`rent_id`),
+  KEY `estate_paid_bill_files_rent_id_foreign` (`rent_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

@@ -12,5 +12,5 @@ CREATE TABLE `estate_paid_bills` (
   KEY `estate_paid_bills_bill_id_foreign` (`bill_id`),
   KEY `estate_paid_bills_estate_id_foreign` (`estate_id`),
   KEY `estate_paid_bills_rent_id_foreign` (`rent_id`),
-  KEY `estate_paid_bills_payer_id_foreign` (`payer_id`),
+  KEY `estate_paid_bills_payer_id_foreign` (`payer_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
