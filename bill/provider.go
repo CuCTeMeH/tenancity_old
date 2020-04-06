@@ -1,23 +1,19 @@
-package user
+package bill
 
 import (
 	"Tenancity/API/core"
-	"Tenancity/API/user/routes"
 	"log"
 	"path/filepath"
 )
 
 func Register(I *core.Instance) {
 	autoMigrate()
-	I.AddRoute("/test", user.Routes())
 }
 
 func autoMigrate() {
-	dir, err := filepath.Rel("", "user/migrations/")
+	dir, err := filepath.Abs("./bill/migrations/")
 	if err != nil {
 		log.Fatal(err)
 	}
-	//println(dir)
-	//return
 	core.AutoMigrateModules(dir)
 }

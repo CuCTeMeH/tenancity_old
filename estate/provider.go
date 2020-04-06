@@ -1,23 +1,21 @@
-package user
+package estate
 
 import (
 	"Tenancity/API/core"
-	"Tenancity/API/user/routes"
+	"Tenancity/API/estate/routes"
 	"log"
 	"path/filepath"
 )
 
 func Register(I *core.Instance) {
 	autoMigrate()
-	I.AddRoute("/test", user.Routes())
+	I.AddRoute("/test", estate.Routes())
 }
 
 func autoMigrate() {
-	dir, err := filepath.Rel("", "user/migrations/")
+	dir, err := filepath.Abs("./estate/migrations/")
 	if err != nil {
 		log.Fatal(err)
 	}
-	//println(dir)
-	//return
 	core.AutoMigrateModules(dir)
 }

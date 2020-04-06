@@ -1,9 +1,14 @@
 package main
 
 import (
+	"Tenancity/API/bill"
 	"Tenancity/API/core"
-	"Tenancity/API/groups"
+	"Tenancity/API/estate"
+	"Tenancity/API/file"
+	"Tenancity/API/message"
 	"Tenancity/API/user"
+	"log"
+	"path/filepath"
 	"runtime"
 )
 
@@ -18,7 +23,7 @@ func main() {
 		defer connection.Close()
 	}
 	//DB
-
+	AutoMigrate()
 	core.AddLogrusHooks()
 	core.Server.InitRoutes()
 
@@ -30,5 +35,16 @@ func main() {
 
 func InitModules(Server *core.Instance) {
 	user.Register(Server)
-	groups.Register(Server)
+	estate.Register(Server)
+	bill.Register(Server)
+	file.Register(Server)
+	message.Register(Server)
+}
+
+func AutoMigrate() {
+	dir, err := filepath.Rel("", "migrations")
+	if err != nil {
+		log.Fatal(err)
+	}
+	core.AutoMigrateModules(dir)
 }

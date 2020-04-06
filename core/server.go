@@ -4,12 +4,14 @@ import (
 	"Tenancity/API/core/middleware"
 	structs "Tenancity/API/core/structs"
 	"context"
+	"fmt"
 	"github.com/go-chi/chi"
 	"github.com/go-chi/chi/middleware"
 	"github.com/go-chi/httpcoala"
 	"github.com/go-chi/render"
-	"github.com/golang-migrate/migrate"
-	_ "github.com/golang-migrate/migrate/database/mysql"
+	"github.com/golang-migrate/migrate/v4"
+	_ "github.com/golang-migrate/migrate/v4/database/mysql"
+	_ "github.com/golang-migrate/migrate/v4/source/file"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
 	"net/http"
@@ -116,14 +118,37 @@ func (i *Instance) InitRouter() {
 
 func AutoMigrateModules(path string) {
 	if viper.GetBool("autoMigrate") == true {
-		version := "1.0.0"
-		//set db configurable here.
-		m, err := migrate.New(
-			path+version,
-			"mysql://root:@tcp(localhost:3306)/Tenancity")
+		version := viper.GetString("version")
+		//sourceUrl := "file:///" + path + version
+		sourceUrl := "file://" + path + "/" + version
+
+		AutoMigrateWorkaround()
+		connection := Server.DB.Credentials["main"]
+		dbSource := fmt.Sprintf("mysql://%s:%s@tcp(%s:%d)/%s?charset=utf8&parseTime=True&loc=Local", connection.Username, connection.Password, connection.Host, connection.Port, connection.Name)
+
+		m, err := migrate.New(sourceUrl, dbSource)
+
 		if err != nil {
 			logrus.Fatal(err)
 		}
-		m.Up()
+
+		e := m.Up()
+		if e != nil {
+			logrus.Warn(e)
+		}
+	}
+}
+
+func AutoMigrateWorkaround() {
+	type Result struct {
+		Version int
+	}
+
+	var result Result
+	db.Raw("SELECT version FROM schema_migrations order by version limit 1", 3).Scan(&result)
+
+	if result.Version > 0 {
+		//Check with sql the last row and reset the version column to 0 on each run.
+		db.Exec("UPDATE schema_migrations SET version=?", 0)
 	}
 }

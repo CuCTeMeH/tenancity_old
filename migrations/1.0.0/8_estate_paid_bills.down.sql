@@ -1,0 +1,1 @@
+DROP TABLE IF EXISTS `estate_paid_bills`;
