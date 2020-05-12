@@ -108,6 +108,7 @@ func (i *Instance) InitRouter() {
 		core.Locale(),
 	)
 
+	//TODO find a way to map v1,v2 etc routes from packages.
 	router.Route("/v1", func(r chi.Router) {
 		for k, v := range i.Endpoints.Handlers {
 			r.Mount(k, v)
