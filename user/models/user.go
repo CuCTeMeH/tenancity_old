@@ -1,13 +1,19 @@
 package user
 
 import (
-	"github.com/jinzhu/gorm"
+	"time"
 )
 
 type User struct {
-	gorm.Model
-	FirstName string
-	LastName  string
-	Username  string
-	Phone	string
+	ID              uint `gorm:"primary_key"`
+	FirstName       string
+	LastName        string
+	Username        string
+	Type            string
+	Email           string
+	EmailVerifiedAt time.Time
+	RememberToken   string
+	CreatedAt       time.Time
+	UpdatedAt       time.Time
+	DeletedAt       *time.Time `sql:"index"`
 }

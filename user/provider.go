@@ -6,5 +6,5 @@ import (
 )
 
 func Register(I *core.Instance) {
-	I.AddRoute("/test", user.Routes())
+	I.AddRoute("/user", user.Routes())
 }

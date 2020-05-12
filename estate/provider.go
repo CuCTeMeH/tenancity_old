@@ -6,5 +6,5 @@ import (
 )
 
 func Register(I *core.Instance) {
-	I.AddRoute("/test", estate.Routes())
+	I.AddRoute("/estate", estate.Routes())
 }
