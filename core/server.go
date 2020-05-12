@@ -25,6 +25,7 @@ type Instance structs.Instance
 var Server *Instance
 
 func NewInstance() *Instance {
+	//TODO fetch the address from viper config.
 	s := &Instance{
 		Addr: ":3333",
 		// just in case you need some setup here
