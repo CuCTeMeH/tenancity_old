@@ -9,12 +9,10 @@ import (
 	"Tenancity/API/user"
 	"log"
 	"path/filepath"
-	"runtime"
 )
 
 func main() {
 	// Use all CPU cores
-	runtime.GOMAXPROCS(runtime.NumCPU())
 	core.Server = core.NewInstance()
 
 	//DB
