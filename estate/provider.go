@@ -1,8 +1,8 @@
 package estate
 
 import (
-	"Tenancity/API/core"
-	"Tenancity/API/estate/routes"
+	"tenancity/api/core"
+	"tenancity/api/estate/routes"
 )
 
 func Register(I *core.Instance) {

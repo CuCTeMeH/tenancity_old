@@ -1,8 +1,8 @@
 package user
 
 import (
-	"Tenancity/API/core"
-	"Tenancity/API/user/routes"
+	"tenancity/api/core"
+	"tenancity/api/user/routes"
 )
 
 func Register(I *core.Instance) {

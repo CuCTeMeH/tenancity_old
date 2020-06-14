@@ -1,7 +1,7 @@
 package file
 
 import (
-	"Tenancity/API/core"
+	"tenancity/api/core"
 )
 
 func Register(I *core.Instance) {

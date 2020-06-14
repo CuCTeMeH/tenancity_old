@@ -1,12 +1,12 @@
 package core
 
 import (
-	"Tenancity/API/core/structs"
 	"fmt"
 	"github.com/fsnotify/fsnotify"
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
 	"github.com/spf13/viper"
+	"tenancity/api/core/structs"
 )
 
 var db *gorm.DB

@@ -1,8 +1,8 @@
 package estate
 
 import (
-	"Tenancity/API/estate/controllers"
 	"github.com/go-chi/chi"
+	"tenancity/api/estate/controllers"
 )
 
 func Routes() *chi.Mux {

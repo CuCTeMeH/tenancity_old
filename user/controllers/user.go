@@ -1,11 +1,11 @@
 package user
 
 import (
-	"Tenancity/API/core"
-	gormUser "Tenancity/API/user/models"
 	"github.com/go-chi/chi"
 	"github.com/go-chi/render"
 	"net/http"
+	"tenancity/api/core"
+	gormUser "tenancity/api/user/models"
 )
 
 func GetUser(w http.ResponseWriter, r *http.Request) {

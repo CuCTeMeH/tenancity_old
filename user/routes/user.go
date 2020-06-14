@@ -1,8 +1,8 @@
 package user
 
 import (
-	"Tenancity/API/user/controllers"
 	"github.com/go-chi/chi"
+	"tenancity/api/user/controllers"
 )
 
 func Routes() *chi.Mux {

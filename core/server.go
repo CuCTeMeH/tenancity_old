@@ -1,8 +1,6 @@
 package core
 
 import (
-	"Tenancity/API/core/middleware"
-	structs "Tenancity/API/core/structs"
 	"context"
 	"fmt"
 	"github.com/go-chi/chi"
@@ -15,6 +13,8 @@ import (
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
 	"net/http"
+	"tenancity/api/core/middleware"
+	structs "tenancity/api/core/structs"
 	"time"
 )
 

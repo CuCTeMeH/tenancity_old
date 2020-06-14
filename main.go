@@ -1,14 +1,14 @@
 package main
 
 import (
-	"Tenancity/API/bill"
-	"Tenancity/API/core"
-	"Tenancity/API/estate"
-	"Tenancity/API/file"
-	"Tenancity/API/message"
-	"Tenancity/API/user"
 	"log"
 	"path/filepath"
+	"tenancity/api/bill"
+	"tenancity/api/core"
+	"tenancity/api/estate"
+	"tenancity/api/file"
+	"tenancity/api/message"
+	"tenancity/api/user"
 )
 
 func main() {

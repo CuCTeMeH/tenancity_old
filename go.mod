@@ -1,4 +1,4 @@
-module Tenancity/API
+module tenancity/api
 
 go 1.14
 
